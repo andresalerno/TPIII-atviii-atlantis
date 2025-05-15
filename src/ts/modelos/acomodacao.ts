@@ -1,3 +1,4 @@
+// checado no diagrama e está OK
 import { NomeAcomadacao } from "../enumeracoes/NomeAcomadacao"
 
 export default class Acomodacao {
