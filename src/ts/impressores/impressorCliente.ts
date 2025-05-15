@@ -15,12 +15,15 @@ export default class ImpressorCliente {
         resultado += `| Data de nascimento: ${this.cliente.DataNascimento.toLocaleDateString()}\n`;
         resultado += `| Data de cadastro: ${this.cliente.DataCadastro.toLocaleDateString()}\n`;
 
+        // Exibir endereço somente se existir
         if (this.cliente.Endereco) {
             const impressorEndereco = new ImpressorEndereco(this.cliente.Endereco);
             resultado += impressorEndereco.imprimir();
-        } else {
-            resultado += "Endereço não encontrado.\n"; // Mensagem amigável só se não tiver endereço
+        } else if (!this.cliente.Titular) {
+            // Se cliente NÃO tem titular, é titular (logo, mostrar mensagem)
+            resultado += "Endereço não encontrado.\n";
         }
+        // Para dependentes sem endereço, não mostra mensagem nenhuma
 
         if (this.cliente.Documentos.length > 0) {
             resultado += "| Documento:\n";
