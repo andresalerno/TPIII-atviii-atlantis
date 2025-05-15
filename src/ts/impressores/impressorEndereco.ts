@@ -9,7 +9,7 @@ export default class ImpressorEndereco implements Impressor {
     imprimir(): string {
 
         if (!this.endereco) {
-            return 'Endereço não encontrado.'
+            return "| Endereço não cadastrado.\n";
         }
         
         let impressao = `| Endereco:\n`
@@ -18,7 +18,7 @@ export default class ImpressorEndereco implements Impressor {
             + `| cidade: ${this.endereco.Cidade}\n`
             + `| estado: ${this.endereco.Estado}\n`
             + `| país: ${this.endereco.Pais}\n`
-            + `| código postal: ${this.endereco.Pais}`
-        return impressao
+            + `| código postal: ${this.endereco.CodigoPostal || "não informado"}\n`;
+        return impressao;
     }
 }

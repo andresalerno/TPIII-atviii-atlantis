@@ -18,7 +18,7 @@ export default class CadastroDocumentosCliente extends Processo {
             this.menu.mostrar()
             this.opcao = this.entrada.receberNumero('Qual opção desejada?')
             switch (this.opcao) {
-                case 1:
+                case 2:
                     this.processo = new CadastroRg(this.cliente)
                     this.processo.processar()
                     break
