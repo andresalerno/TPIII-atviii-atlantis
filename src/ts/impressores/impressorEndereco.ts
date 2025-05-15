@@ -2,11 +2,16 @@ import Impressor from "../interfaces/impressor";
 import Endereco from "../modelos/endereco";
 
 export default class ImpressorEndereco implements Impressor {
-    private endereco: Endereco
+    private endereco?: Endereco
     constructor(endereco: Endereco) {
         this.endereco = endereco
     }
     imprimir(): string {
+
+        if (!this.endereco) {
+            return 'Endereço não encontrado.'
+        }
+        
         let impressao = `| Endereco:\n`
             + `| rua: ${this.endereco.Rua}\n`
             + `| bairro: ${this.endereco.Bairro}\n`
