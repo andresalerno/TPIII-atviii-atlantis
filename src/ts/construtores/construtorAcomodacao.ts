@@ -18,8 +18,13 @@ export default class ConstrutorAcomodacao implements Construtor<Acomodacao>{
     public set Garagem(garagem: Number) { this.garagem = garagem }
 
     construir(): Acomodacao {
-        let acomodacao = new Acomodacao(this.nomeAcomodacao, this.camaSolteiro,
-            this.camaCasal, this.suite, this.climatizacao, this.garagem)
+        let acomodacao = new Acomodacao(
+            this.nomeAcomodacao,
+            this.camaSolteiro,
+            this.camaCasal,
+            this.suite,
+            this.climatizacao,
+            this.garagem)
         return acomodacao
     }
 }

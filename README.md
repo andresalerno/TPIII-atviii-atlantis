@@ -12,7 +12,7 @@ Fundador, Dev e Engenheiro de Software: André Salerno
     - Possui ou não camas de solteiro
     - Possui suítes
     - Possui garagens
-- Implementar todas as classe diretoras - responsáveis por criar cada tipo de acomodação
+- Implementar todas as classe diretoras - responsáveis por criar cada tipo de acomodação ✅
 - Implementar as estruturas de dados e a lógica necessárias para controlar a hospedagem, ou seja, poder registrar hospedes e vincular estes hospedes a algum tipo de acomodação
 
 ## Definições de acomodações:
