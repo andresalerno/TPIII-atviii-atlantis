@@ -1,8 +1,12 @@
 import Processo from "../abstracoes/processo"
 import MenuPrincipal from "../menus/menuPricipal"
+import RegistrarOcupacoesEmpresa from "./cadastrarOcupacoes"
+import CadastroAcomodacoes from "./cadastroAcomodacoes"
+import CadastroEmpresa from "./cadastroEmpresa"
 import EditarCliente from "./editarClienteTitular"
 import ExcluirCliente from "./excluirClienteTitular"
 import ListagemAcomodacoes from "./listagemAcomodacoes"
+import ResumoAcomodacoesEmpresa from "./resumoAcomodacoesEmpresa"
 import TipoCadastroCliente from "./tipoCadastroCliente"
 import TipoListagemClientes from "./tipoListagemClientes"
 
@@ -33,7 +37,19 @@ export default class Principal extends Processo {
                 this.processo.processar()
                 break
             case 5:
-                this.processo = new ListagemAcomodacoes()
+                this.processo = new CadastroEmpresa()
+                this.processo.processar()
+                break
+            case 6:
+                this.processo = new CadastroAcomodacoes()
+                this.processo.processar()
+                break
+            case 7:
+                this.processo = new RegistrarOcupacoesEmpresa();
+                this.processo.processar();
+                break;
+            case 8:
+                this.processo = new ResumoAcomodacoesEmpresa()
                 this.processo.processar()
                 break
             case 0:

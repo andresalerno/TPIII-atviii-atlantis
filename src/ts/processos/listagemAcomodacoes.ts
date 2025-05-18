@@ -1,24 +1,30 @@
 import Processo from "../abstracoes/processo";
-import Armazem from "../dominio/armazem";
-import ImpressorAcomodacao from "../impressores/impressorAcomodacao";
-import Impressor from "../interfaces/impressor";
-import Acomodacao from "../modelos/acomodacao";
+import Empresa from "../modelos/empresa";
+import { NomeAcomadacao } from "../enumeracoes/NomeAcomadacao";
 
 export default class ListagemAcomodacoes extends Processo {
-    private acomodacoes: Acomodacao[]
-    private impressor!: Impressor
-    constructor() {
-        super()
-        this.acomodacoes = Armazem.InstanciaUnica.Acomodacoes
+    private empresa: Empresa;
+
+    constructor(empresa: Empresa) {
+        super();
+        this.empresa = empresa;
     }
+
     processar(): void {
-        console.clear()
-        console.log('Iniciando a listagem das acomodações ofertadas...')
-        console.log(`-------------------------------------------------`)
-        this.acomodacoes.forEach(acomodacao => {
-            this.impressor = new ImpressorAcomodacao(acomodacao)
-            console.log(this.impressor.imprimir())
-            console.log(`-------------------------------------------------`)
-        })
+        console.clear();
+        console.log(`Listando acomodações da empresa: ${this.empresa["nome"]}`); // Se 'nome' for privado, crie getter
+        console.log("-------------------------------------------------");
+
+        // Itera sobre as acomodações disponíveis na empresa
+        this.empresa["acomodacoesDisponiveis"].forEach((total: number, tipo: NomeAcomadacao) => {
+            const ocupados = this.empresa.getOcupados(tipo);
+            const disponiveis = total - ocupados;
+
+            console.log(`Tipo: ${tipo}`);
+            console.log(`Total: ${total}`);
+            console.log(`Ocupados: ${ocupados}`);
+            console.log(`Disponíveis: ${disponiveis}`);
+            console.log("-------------------------------------------------");
+        });
     }
 }

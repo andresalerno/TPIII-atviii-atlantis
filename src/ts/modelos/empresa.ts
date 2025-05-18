@@ -75,4 +75,12 @@ export default class Empresa {
       console.log(`- ${tipo}: Total = ${total}, Ocupados = ${ocupados}, Disponíveis = ${total - ocupados}`);
     });
   }
+
+    public getNome() {
+    return this.nome;
+    }
+
+    public getTipo() {
+    return this.tipo;
+    }
 }
