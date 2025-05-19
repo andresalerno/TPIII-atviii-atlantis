@@ -269,7 +269,7 @@ Tipo: Acomodação simples para solteiro(a)
 
 ## Definições de acomodações:
 
-<img src="../img/image.png" alt="Diagrama" width="800"/>
+<img src="./src/img/image.png" alt="Diagrama" width="800"/>
 
 Obs.: padrão de projeto esperado: BUILDER para implementar os construtores de acomodações
 
@@ -361,6 +361,6 @@ export default class ConstrutorObjeto implements Construtor {
 
 ## Diagrama de classe Esperado
 
-<img src="../img/image1.png" alt="Diagrama" width="800"/>
+<img src="./src/img/image1.png" alt="Diagrama" width="800"/>
 
 
