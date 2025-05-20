@@ -2,13 +2,16 @@ import Processo from "../abstracoes/processo";
 import Armazem from "../dominio/armazem";
 import Empresa from "../modelos/empresa";
 import { NomeAcomadacao } from "../enumeracoes/NomeAcomadacao";
+import Cliente from "../modelos/cliente";
 
 export default class RegistrarOcupacoesEmpresa extends Processo {
     private empresas: Empresa[];
+    private clientes: Cliente[];
 
     constructor() {
         super();
         this.empresas = Armazem.InstanciaUnica.Empresas;
+        this.clientes = Armazem.InstanciaUnica.Clientes;
     }
 
     processar(): void {
@@ -30,6 +33,25 @@ export default class RegistrarOcupacoesEmpresa extends Processo {
 
         if (!empresa) {
             console.log("Empresa inválida.");
+            return;
+        }
+
+        // Selecionar cliente para associar a ocupação
+        if (this.clientes.length === 0) {
+            console.log("Nenhum cliente cadastrado para associar.");
+            return;
+        }
+
+        console.log("\nClientes disponíveis:");
+        this.clientes.forEach((cliente, index) => {
+            console.log(`${index + 1} - ${cliente.Nome} (${cliente.NomeSocial})`);
+        });
+
+        const clienteIndex = this.entrada.receberNumero("Escolha o número do cliente:");
+        const clienteSelecionado = this.clientes[clienteIndex - 1];
+
+        if (!clienteSelecionado) {
+            console.log("Cliente inválido.");
             return;
         }
 
