@@ -4,6 +4,12 @@ Empresa criada: Ocean Solutions
 
 Fundador, Dev e Engenheiro de Software: André Salerno
 
+## Rodar o sistema
+
+```powershell
+npm run dev
+```
+
 ## Dores/ajustes
 
 - falta forma de cadastro ✅
